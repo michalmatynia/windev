@@ -15,11 +15,11 @@ import MKTypography from 'components/ui/material-kit-pro-react-v2.0.0/MKTypograp
 function DefaultNavbarDropdown({
   name,
   icon,
-  children,
-  collapseStatus,
-  light,
-  href,
-  route,
+  children = false,
+  collapseStatus = false,
+  light = false,
+  href = '',
+  route = '',
   collapse,
   ...rest
 }) {
@@ -86,13 +86,6 @@ function DefaultNavbarDropdown({
 }
 
 // Setting default values for the props of DefaultNavbarDropdown
-DefaultNavbarDropdown.defaultProps = {
-  children: false,
-  collapseStatus: false,
-  light: false,
-  href: '',
-  route: '',
-}
 
 // Typechecking props for the DefaultNavbarDropdown
 DefaultNavbarDropdown.propTypes = {

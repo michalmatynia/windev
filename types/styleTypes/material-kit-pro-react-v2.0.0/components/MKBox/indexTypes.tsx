@@ -9,37 +9,51 @@ export type MKBoxValidGreyColorProps =
   | 'grey-700'
   | 'grey-800'
   | 'grey-900'
+export type MKBoxValidGradientProps =
+  | 'primary'
+  | 'secondary'
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'dark'
+  | 'light'
 
-export interface MKBoxProps {
-  variant?: 'contained' | 'gradient'
-  bgColor?:
-    | 'primary'
-    | 'secondary'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'error'
-    | 'dark'
-    | 'light'
-    | 'transparent'
-    | MKBoxValidGreyColorProps
+export type MKBoxValidColorProps =
+  // | MKBoxValidGreyColorProps
+  | MKBoxValidGradientProps
   // | 'white'
   // | 'black'
   // | 'text'
+  | 'transparent'
 
-  color?: Color | 'dark'
-  opacity?: number
-  borderRadius?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'section'
-  //   borderRadius?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full'
-  shadow?: 'none' | 'sm' | 'md' | 'lg' | 'xl'
-  coloredShadow?:
-    | 'primary'
-    | 'secondary'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'error'
-    | 'light'
-    | 'dark'
-    | 'none'
+export interface MKBoxProps {
+  variant: 'contained' | 'gradient'
+  testStat: string
+  // bgColor?:
+  //   | 'primary'
+  //   | 'secondary'
+  //   | 'info'
+  //   | 'success'
+  //   | 'warning'
+  //   | 'error'
+  //   | 'dark'
+  //   | 'light'
+  //   | 'transparent'
+
+  // color?: Color | 'dark'
+  // opacity?: number
+  // borderRadius?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'section'
+  // //   borderRadius?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full'
+  // shadow?: 'none' | 'sm' | 'md' | 'lg' | 'xl'
+  // coloredShadow?:
+  //   | 'primary'
+  //   | 'secondary'
+  //   | 'info'
+  //   | 'success'
+  //   | 'warning'
+  //   | 'error'
+  //   | 'light'
+  //   | 'dark'
+  //   | 'none'
 }

@@ -76,6 +76,8 @@ export default styled(Box, {
     // coloredShadow,
   } = ownerState
 
+  console.log(testStat)
+
   // const { gradients, grey, white } = palette as Palette & {
   //   gradients: ValidGradientObjectProps
   //   white: {
