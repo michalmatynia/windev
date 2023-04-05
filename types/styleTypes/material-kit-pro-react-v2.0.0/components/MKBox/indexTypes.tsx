@@ -1,4 +1,3 @@
-import { Color } from '@mui/material'
 export type MKBoxValidGreyColorProps =
   | 'grey-100'
   | 'grey-200'
@@ -19,41 +18,38 @@ export type MKBoxValidGradientProps =
   | 'dark'
   | 'light'
 
+export type MKBoxValidPaletteColorProps =
+  | 'primary'
+  | 'secondary'
+  | 'error'
+  | 'warning'
+  | 'info'
+  | 'success'
+
 export type MKBoxValidColorProps =
-  // | MKBoxValidGreyColorProps
+  | MKBoxValidGreyColorProps
   | MKBoxValidGradientProps
-  // | 'white'
-  // | 'black'
-  // | 'text'
+  | 'white'
+  | 'black'
+  | 'text'
   | 'transparent'
 
 export interface MKBoxProps {
-  variant: 'contained' | 'gradient'
-  testStat: string
-  // bgColor?:
-  //   | 'primary'
-  //   | 'secondary'
-  //   | 'info'
-  //   | 'success'
-  //   | 'warning'
-  //   | 'error'
-  //   | 'dark'
-  //   | 'light'
-  //   | 'transparent'
+  variant?: 'contained' | 'gradient'
+  bgColor?: MKBoxValidColorProps
 
-  // color?: Color | 'dark'
-  // opacity?: number
-  // borderRadius?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'section'
-  // //   borderRadius?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full'
-  // shadow?: 'none' | 'sm' | 'md' | 'lg' | 'xl'
-  // coloredShadow?:
-  //   | 'primary'
-  //   | 'secondary'
-  //   | 'info'
-  //   | 'success'
-  //   | 'warning'
-  //   | 'error'
-  //   | 'light'
-  //   | 'dark'
-  //   | 'none'
+  color?: 'dark' | 'light' | MKBoxValidPaletteColorProps
+  opacity?: number
+  borderRadius?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'section'
+  shadow?: 'none' | 'sm' | 'md' | 'lg' | 'xl'
+  coloredShadow?:
+    | 'primary'
+    | 'secondary'
+    | 'info'
+    | 'success'
+    | 'warning'
+    | 'error'
+    | 'light'
+    | 'dark'
+    | 'none'
 }
