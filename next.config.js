@@ -7,7 +7,7 @@ const nextConfig = {
     name: process.env.NEXT_PUBLIC_FRAMEWORK,
   },
   i18n: {
-    locales: ['en-US', 'es'],
+    locales: ['en-US', 'de-DE', 'pl-PL'],
     defaultLocale: 'en-US',
   },
   sassOptions: {

@@ -1,5 +1,5 @@
 import { BasicComponentProps } from 'types/styleTypes/nextjs-material-kit/componentProps'
-import { roboto, roboto_slab } from './fonts'
+import { roboto, roboto_slab } from './[locale]/fonts'
 import { FC } from 'react'
 import StyledComponentsRegistry from '@lib/styled-components/registry'
 
@@ -48,8 +48,13 @@ export const metadata = {
 const RootLayout: FC<BasicComponentProps> = ({
   children,
 }): React.ReactElement => {
+  const lang = 'de-DE'
+
   return (
-    <html lang="en" className={`${roboto.className} ${roboto_slab.className}`}>
+    <html
+      lang={lang}
+      className={`${roboto.className} ${roboto_slab.className}`}
+    >
       <body>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
