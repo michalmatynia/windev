@@ -6,10 +6,10 @@ const nextConfig = {
   framework: {
     name: process.env.NEXT_PUBLIC_FRAMEWORK,
   },
-  i18n: {
-    locales: ['en-US', 'de-DE', 'pl-PL'],
-    defaultLocale: 'en-US',
-  },
+  // i18n: {
+  //   locales: ['en-US', 'de-DE', 'pl-PL'],
+  //   defaultLocale: 'pl-PL',
+  // },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },

@@ -29,11 +29,21 @@
 //   //   }, [router])
 // }
 
-'use client'
+/// -- Try 2
+// 'use client'
 
-import { useTranslations } from 'next-intl'
+// import { useTranslations } from 'next-intl'
 
-export default function Index() {
-  const t = useTranslations('Index')
-  return <h1>{t('title')}</h1>
+// export default function Index() {
+//   const t = useTranslations('Index')
+//   return <h1>{t('title')}</h1>
+// }
+
+// --- Try 3
+export default function Home({
+  params,
+}: {
+  params: { lang: string; country: string }
+}) {
+  return <h1>{JSON.stringify(params)}</h1>
 }
