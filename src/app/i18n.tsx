@@ -21,6 +21,7 @@ export const getLocalePartsFrom = ({ pathname, locale }: LocaleSource) => {
       country: localeParts[1],
     }
   } else {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const pathnameParts = pathname!.toLowerCase().split('/')
     return {
       lang: pathnameParts[1],
@@ -29,34 +30,39 @@ export const getLocalePartsFrom = ({ pathname, locale }: LocaleSource) => {
   }
 }
 
-const dictionaries: Record<ValidLocale, any> = {
-  'en-US': () =>
-    import('dictionaries/milkbar/v2.0/en-US.json').then(
-      (module) => module.default
-    ),
-  'en-CA': () =>
-    import('dictionaries/milkbar/v2.0/en-CA.json').then(
-      (module) => module.default
-    ),
-  'fr-CA': () =>
-    import('dictionaries/milkbar/v2.0/fr-CA.json').then(
-      (module) => module.default
-    ),
-} as const
+const dictionaries: Record<ValidLocale, () => Promise<Record<string, object>>> =
+  {
+    'en-US': () =>
+      import('dictionaries/milkbar/v2.0/en-US.json').then(
+        (module) => module.default
+      ),
+    'en-CA': () =>
+      import('dictionaries/milkbar/v2.0/en-CA.json').then(
+        (module) => module.default
+      ),
+    'fr-CA': () =>
+      import('dictionaries/milkbar/v2.0/fr-CA.json').then(
+        (module) => module.default
+      ),
+  } as const
 
 export const getTranslator = async (locale: ValidLocale) => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
   const dictionary = await dictionaries[locale]()
+
   return (key: string, params?: { [key: string]: string | number }) => {
     let translation = key
       .split('.')
-      .reduce((obj, key) => obj && obj[key], dictionary)
+      .reduce((accum, key) => accum && accum[key], dictionary) as unknown as
+      | string
+      | undefined
     if (!translation) {
       return key
     }
     if (params && Object.entries(params).length) {
       Object.entries(params).forEach(([key, value]) => {
-        translation = translation.replace(`{{ ${key} }}`, String(value))
+        if (translation) {
+          translation = translation.replace(`{{ ${key} }}`, String(value))
+        }
       })
     }
     return translation

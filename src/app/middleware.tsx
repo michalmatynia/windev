@@ -7,6 +7,8 @@ import { defaultLocale, locales, getLocalePartsFrom } from './i18n'
 const findBestMatchingLocale = (acceptLangHeader: string) => {
   // parse the locales acceptable in the header, and sort them by priority (q)
   const parsedLangs = langParser.parse(acceptLangHeader)
+  console.log('parsedLangs', parsedLangs)
+  console.log(acceptLangHeader)
 
   // find the first locale that matches a locale in our list
   for (let i = 0; i < parsedLangs.length; i++) {
